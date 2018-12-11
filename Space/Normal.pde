@@ -1,34 +1,30 @@
 
 class Normal {
   protected float x_pos, y_pos, speed, angle;
-  protected float colorR, colorG, colorB;
+  int xDirection = 1;
+  int yDirection = 1;
   
   public Normal(float x, float y, float angle, float speed){
     x_pos=x;
     y_pos=y;
     this.angle = angle;
     this.speed = speed;
-    //this.colorR = colorR;
-    //this.colorG = colorG;
-    //this.colorB = colorB;
   }
     
   void move(){
-    if (x_pos > 600 || x_pos < 0) {
-      angle = angle-180;
+    if (x_pos > 800 || x_pos < 0) {
+      xDirection = xDirection-180;
     }
-    if (y_pos > 500 || y_pos < 0) {
-      angle = angle-180;
+    if (y_pos > 600 || y_pos < 0) {
+      yDirection = yDirection-180;
     }
     if (!mousePressed) {
-      x_pos += Math.cos(radians(angle))*speed;
-      y_pos += Math.sin(radians(angle))*speed;
+      x_pos += Math.cos(radians(angle))*speed +10;
+      y_pos += Math.sin(radians(angle))*speed+10;
     }else {
-      //x_pos = mouseX - Math.random()*20;
-     // y_pos = mouseY - Math.random()*20;
-      colorR = (int)(Math.random()*255);
-      colorG = (int)(Math.random()*255);
-      colorB = (int)(Math.random()*255);
+      x_pos = mouseX - (float)Math.random()*20;
+      y_pos = mouseY - (float)Math.random()*20;
+      
     }
   }
   
@@ -37,10 +33,10 @@ class Normal {
     int colorG = (int)(Math.random() * 255);
     int colorB = (int)(Math.random() * 255);
     fill(colorR, colorG, colorB);
+    noStroke();
     pushMatrix();
     translate(x_pos, y_pos);
-    
-    ellipse(x_pos, y_pos, angle, angle);
+    ellipse(x_pos, y_pos, 10, 10);
     popMatrix();
     
   }
