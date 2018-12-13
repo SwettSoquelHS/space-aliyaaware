@@ -1,6 +1,6 @@
-
 class Normal {
-  protected float x_pos, y_pos, speed, angle;
+  protected float x_pos, y_pos, angle;
+  float speed;
   int xDirection = 1;
   int yDirection = 1;
   
@@ -12,19 +12,19 @@ class Normal {
   }
     
   void move(){
-    if (x_pos > 800 || x_pos < 0) {
-      xDirection = xDirection-180;
+    
+    if (x_pos >= 300 || x_pos <= 0) {
+      xDirection = xDirection*-1;
     }
-    if (y_pos > 600 || y_pos < 0) {
-      yDirection = yDirection-180;
+    if (y_pos >= 250 || y_pos <= 0) {
+      yDirection = yDirection*-1;
     }
     if (!mousePressed) {
-      x_pos += Math.cos(radians(angle))*speed +10;
-      y_pos += Math.sin(radians(angle))*speed+10;
-    }else {
-      x_pos = mouseX - (float)Math.random()*20;
-      y_pos = mouseY - (float)Math.random()*20;
-      
+      x_pos += Math.cos(radians(angle)*speed) *xDirection;
+      y_pos += Math.sin(radians(angle)*speed)*yDirection;
+    }else if(mousePressed) {
+      x_pos = mouseX - (float)(Math.random()*5);
+      y_pos = mouseY - (float)(Math.random()*5);
     }
   }
   
@@ -38,6 +38,6 @@ class Normal {
     translate(x_pos, y_pos);
     ellipse(x_pos, y_pos, 10, 10);
     popMatrix();
-    
+        
   }
 }
