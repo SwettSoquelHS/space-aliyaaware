@@ -4,11 +4,11 @@ class Oddball extends Normal{
   }
   
   void move(){
-    if(x_pos >= 800 || x_pos <= 0){
-      x_pos = x_pos * -1;
+    if (x_pos >= 300 || x_pos <= 0) {
+      xDirection = xDirection*-1;
     }
-    if(y_pos >= 600 || y_pos <= 0){
-      y_pos = y_pos * -1;
+    if (y_pos >= 250 || y_pos <= 0) {
+      yDirection = yDirection*-1;
     }
     if (!mousePressed) {
       x_pos += Math.cos(radians(angle)*speed) *xDirection*5;
