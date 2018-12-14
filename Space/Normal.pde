@@ -20,8 +20,8 @@ class Normal {
       yDirection = yDirection*-1;
     }
     if (!mousePressed) {
-      x_pos += Math.cos(radians(angle)*speed) *xDirection;
-      y_pos += Math.sin(radians(angle)*speed)*yDirection;
+      x_pos += Math.cos(radians(angle)*speed) *xDirection*2;
+      y_pos += Math.sin(radians(angle)*speed)*yDirection*2;
     }else if(mousePressed) {
       x_pos = mouseX - (float)(Math.random()*5);
       y_pos = mouseY - (float)(Math.random()*5);
