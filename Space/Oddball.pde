@@ -17,14 +17,7 @@ class Oddball extends Normal{
       x_pos = mouseX - (float)Math.random()*3;
       y_pos = mouseY - (float)Math.random()*3;
     }
-    
-  //  if(!mousePressed){
-  //     x_pos = x_pos + ((float)(Math.cos(angle) * (speed / 2)) * x_pos) + (((float)(Math.random() * 10) - 5));
-  //     y_pos = y_pos + ((float)(Math.sin(angle) * (speed / 2)) * y_pos) + (((float)(Math.random() * 10) - 5));
-  //  }else if(mousePressed){
-  //    x_pos = mouseX - (int)(((Math.random()) * 20) + 10);
-  //    y_pos = mouseY - (int)(((Math.random()) * 20) + 10);
-  //  }
+
   }
   
   void show(){
